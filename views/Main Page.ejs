@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360++ Personal Books Rating</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/Main.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="top">
+        <a href="/"><h1 class="title">360++ Personal Books Rating</h1></a>
+        <button class="button1" id="login">Im the writer</button>    
+    </div>
+
+    <h1>About this Website</h1>
+    <p>
+        This website is written by “you don’t know who” that wanted to share his experience and also his personal rating about the book. All books rating here is overall from his personal experience. The number of rating is influence by 4 things. Which is:
+        <ul>
+            <li>Place where he read the books</li>
+            <li>Mood when reading the books</li>
+            <li>How the writer attempt to make it interested</li>
+            <li>Quote or lesson from the book</li>
+        </ul>
+    </p>
+
+    <h1 id="hobby">My Little Hobby About Reading</h1>
+    <p>
+        My hobby about reading books started when i was entering college. If i look back at why the reason i started this hobby, it’s actually quite strange to tell, but strangeness always attract people attention isn’t. So anyway, im the kind of person that doesn’t like to be outshine by someone i knew or at least in the same place where i am at the time, "men real ambition is to always be the best at the things that he chose", which in my case, almost everything. Im also obsessed with following successful people habit, my observation tells me that a lot of them had this tiny habit of “reading”. Personally, i never enjoyed reading but because of that, i started to read book over book. First time starting this habit, didn’t quite run well, i finish my first book for like one month and didn’t even understand what is it all about. But everything always starts from zero, so i keep reading and reading until i reach the point where i read books that’s not even my main language. I’ve never regret this decision, cause guys really, what can go bad from reading books?.  
+    </p>
+
+    <hr>
+
+    <% if(locals.books){ %>
+        <% books.forEach((book) => { %>
+            <div class="list-of-books">
+                <div class="book">
+                    <img src="<%= book.image %>" alt="<%= book.title %>">
+
+                    <div class="books-title">
+                        <form class="book-title" action="/book-information" method="GET">
+                            <h1 onclick="submitForm()"><%= book.title %> - By <%= book.author %></h1>
+                            <input type="hidden" name="id" value="<%= book.id %>">
+                        </form>
+                        <div>
+                            <form action="/" method="POST">
+                                <input type="hidden" name="id" value="<%= book.id %>">
+                                <button class="button1">Edit</button>
+                            </form>
+                            <form action="/remove" method="POST">
+                                <input type="hidden" name="id" value="<%= book.id %>">
+                                <button class="button2" id="remove-button">Remove</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <p class="date-and-rating">
+                        Date Read:  <%= book.date_read.toISOString().split('T')[0]; %>  &emsp;  &emsp; Personal Rating: <%= book.rating %>/10
+                    </p>
+                    <p>
+                        <%= book.synopsis %>
+                    </p>
+                </div>
+            </div>
+        <% }); %>
+    <%}else{ %>
+        <h1>Nothing is here</h1>
+    <%} %>
+    
+    <hr>
+
+    <form action="./insert" method="GET">
+        <button class="button1" id="insert_button">Insert book</button>
+    </form>
+
+    <div id="popup">
+        <div id="popup-content">
+            <h3>
+                Username:
+            </h3>
+            <input type="text" name="username" id="username">
+            <h3>
+                password:
+            </h3>
+            <input type="password" name="password" id="password">
+            <div class="button-container">
+                <button id="submitButton" class="button1" type="submit">Submit</button>
+                <button id="cancelButton" class="button2" type="reset">Cancel</button>
+            </div>
+            <button id="close-button"><img src="/images/close image.jpg" alt=""></button>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    var admin = false;
+    $("#login").click(function(){
+        if(admin == false){
+            $("#popup").css("visibility", "visible");
+        }else{
+            $(".books-title button").css("visibility", "hidden");
+            $("#insert_button").css("visibility", "hidden");
+            $("#login").text("Im the writer");
+            admin = false;
+        }
+    })
+
+    $(".book-title").click(function() {
+        // Find the form associated with the clicked book title
+        $(this).closest("form").submit();
+    });
+
+    $("#cancelButton , #close-button").click(function(){
+        $("#popup").css("visibility", "hidden");
+        $("#password , #username").val('');   
+    })
+
+    $("#submitButton").click(function(){
+        let username = $("#username").val();
+        let password = $("#password").val();
+        if(username == 123123 && password == 123123){
+            admin = true;
+            $(".books-title button").css("visibility", "visible");
+            $("#insert_button").css("visibility", "visible");
+            $("#password , #username").val('');   
+            $("#popup").css("visibility", "hidden");
+            $("#login").text("Return to user")
+        }
+        console.log("False");
+    })
+</script>
+
+</html>

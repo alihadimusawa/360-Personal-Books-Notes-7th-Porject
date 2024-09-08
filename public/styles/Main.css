@@ -1,0 +1,161 @@
+*{
+    font-family: "Inknut Antiqua", serif;
+    margin: 0;
+}
+
+body{
+    margin: 10%;
+    background-color: rgba(138, 156, 106, 35%);
+    display: flex;
+    flex-direction: column;
+}
+
+#hobby{
+    margin-top: px;
+}
+
+hr{
+    height: 5px;
+    background-color: #886348;
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 60px;
+}
+
+h1{
+    color: #886348;
+    font-weight: 200;
+}
+
+.title{
+    font-size: 50px;
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+#top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 100;
+    align-items: center;
+}
+
+button{
+    width: 200px;
+    height: fit-content;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.button1, .button2:hover{
+    background-color: transparent;
+    border: #886348 1px solid;
+    color: #886348;
+
+}
+
+.button1:hover ,.button2{
+    background-color: #886348;
+    border: transparent;
+    color:white;
+}
+
+img{
+    float: left;
+    width: 236px;
+    height: 344px;
+    margin-right: 3%;
+}
+
+.books-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.books-title h1{
+    text-decoration: underline;
+    margin-top: 0;
+}
+
+.books-title button{
+    width: 100px;
+    visibility: hidden;
+}
+
+.books-title > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#remove-button{
+    margin-left: 50px;
+}
+
+#insert_button{
+    visibility: hidden;
+}
+
+.list-of-books > .book{
+    margin-top: 100px;
+}
+
+.date-and-rating{
+    color: rgba(0, 0, 0, 0.56);
+}
+
+.button-container{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.button-container button{
+    width: 20%;
+    margin-top: 20px;
+}
+
+#popup{
+    background-color: white;
+    border-radius: 10px;
+    border: solid 1px black;
+    position: fixed;
+    /* translate: (-50%, -50%); */
+    top: 40%;
+    left: 40%;
+    width: 500px;;
+    height: 300px;
+    visibility: hidden;
+}
+#popup-content{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#close-button, #popup img{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: transparent;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}

@@ -1,0 +1,68 @@
+*{
+    font-family: "Inknut Antiqua", serif;
+    margin: 0;
+}
+body{
+    margin: 10%;
+    background-color: rgba(138, 156, 106, 35%);
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    color: #886348;
+    font-weight: 200;
+    font-size: medium;
+}
+
+.title{
+    font-size: 50px;
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+button{
+    width: 200px;
+    height: fit-content;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.button1, .button2:hover{
+    background-color: transparent;
+    border: #886348 3px solid;
+    color: #886348;
+
+}
+
+.button1:hover ,.button2{
+    background-color: #886348;
+    border: transparent;
+    color:white;
+}
+
+img{
+    width: 236px;
+    height: 344px;
+    margin-right: 3%;
+}
+
+#top{
+    display: flex;
+}
+
+.top-right, .small-input{
+    width: 100%;
+}
+
+textarea{
+    height: 400px;
+    width: 100%;
+}
+
+.bottom-button-container{
+    margin-top: 20px;
+}

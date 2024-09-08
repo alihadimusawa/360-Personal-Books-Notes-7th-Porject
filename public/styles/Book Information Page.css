@@ -1,0 +1,74 @@
+*{
+    font-family: "Inknut Antiqua", serif;
+    margin: 0;
+}
+body{
+    margin: 10%;
+    background-color: rgba(138, 156, 106, 35%);
+    display: flex;
+    flex-direction: column;
+}
+hr{
+    height: 5px;
+    background-color: #886348;
+    width: 110%;
+    margin: 20px auto;
+}
+h1{
+    color: #886348;
+    font-weight: 200;
+}
+
+.title{
+    font-size: 50px;
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+button{
+    width: 200px;
+    height: fit-content;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.button1, .button2:hover{
+    background-color: transparent;
+    border: #886348 3px solid;
+    color: #886348;
+
+}
+
+.button1:hover ,.button2{
+    background-color: #886348;
+    border: transparent;
+    color:white;
+}
+
+img{
+    float: left;
+    width: 236px;
+    height: 344px;
+    margin-right: 3%;
+}
+
+
+.date-and-rating{
+    color: rgba(0, 0, 0, 0.56);
+}
+
+/* ends here */
+
+.top{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 100px;
+}
+
+.top-right{
+    display: flex;
+    flex-direction: column;
+}

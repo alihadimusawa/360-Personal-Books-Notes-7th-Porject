@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Book</title>
+    <link rel="stylesheet" href="/styles/Insert page.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+ 
+</head>
+<body>
+    
+    <!-- This one focus on the insert part -->
+    <% if(type == "insert"){ %>
+        <form action="/insert" method="POST">
+            <a href="/"><h1 class="title">360++ Personal Books Rating</h1></a>
+
+            <div id="top">
+                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pickpik.com%2Fsearch%3Fq%3Dused%2Bbooks%26sort%3Daesthetic&psig=AOvVaw0_oA8IullZUx_4mUf55Rfu&ust=1725373788489000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNDu5rC8pIgDFQAAAAAdAAAAABAE" alt="Insert Book">
+                <div class="top-right">
+                    <h1>Title - Author:</h1>
+                    <input type="text" class="small-input" name="title_author" placeholder="Ex: 48 Laws of Power - Robert Greene"> 
+                
+                    <h1>ISBN:</h1>
+                    <input type="text" class="small-input" name="isbn" placeholder="Paperback ISBN is preferrable, ex: 9788467039054"> 
+                
+                    <h1>Date Read:</h1>
+                    <input type="text" class="small-input" name="date_read" placeholder="2024-09-02">
+
+                    <h1>Personal Ratings:</h1>
+                    <input type="text" class="small-input" name="rating" placeholder="Just a number between 0-10">
+                </div>
+            </div>
+            <h1>Personal Synopsis:</h1>
+            <textarea name="synopsis" id="synopsis" placeholder="Write your personal synospsis here"></textarea>
+
+            <h1>Personal Notes:</h1>
+            <textarea name="notes" id="notes" placeholder="Write your personal notes about the book here"></textarea>
+
+            <div class="bottom-button-container">
+                <button class="button1">Insert book</button>
+                <button class="button2">Cancel</button>
+            </div>
+        </form>
+    
+    
+    <% }else if(type == "edit"){ %>
+        <!-- This one focus on the edit part -->
+        <form action="/edit" method="POST">
+            <a href="./Main Page.html"><h1 class="title">360++ Personal Books Rating</h1></a>
+
+            <div id="top">
+                <img src="<%= book.image %>" alt="<%= book.title %> ">
+                <div class="top-right">
+                    <h1>Title - Author:</h1>
+                    <input type="text" class="small-input" name="title_author" placeholder="Ex: 48 Laws of Power - Robert Greene" value="<%= book.title %> - <%= book.author %>"> 
+
+                    <h1>Date Read:</h1>
+                    <input type="text" class="small-input" name="date_read" placeholder="2024-09-02" value="<%= book.date_read.toISOString().split('T')[0]; %>">
+
+                    <h1>Personal Ratings:</h1>
+                    <input type="text" class="small-input" name="rating" placeholder="Just a number between 0-10" value="<%= book.rating %>">
+                </div>
+            </div>
+            <h1>Personal Synopsis:</h1>
+            <textarea name="synopsis" id="synopsis"><%= book.synopsis %></textarea>
+            
+
+            <h1>Personal Notes:</h1>
+            <textarea name="notes" id="notes"><%= book.personal_notes %></textarea>
+
+            <div class="bottom-button-container">
+                <button class="button1">Save Changes</button>
+                <button class="button2">Cancel</button>
+            </div>
+            <input type="hidden" name="id" id="id" value="<%= book.id %>">
+        </form>
+    <% } %>
+</body>
+</html>

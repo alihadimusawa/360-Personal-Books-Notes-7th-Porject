@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informations</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+ 
+    <link rel="stylesheet" href="/styles/Book Information Page.css">
+</head>
+<body>
+    <a href="/"><h1 class="title">360++ Personal Books Rating</h1></a>
+    <% if(locals.book){ %>
+        <div class="top">
+            <img src="<%= book.image %>" alt="<%= book.title %>">
+            <div class="top-right">
+                <h1><%= book.title %> - By <%= book.author %></h1>
+
+                <p class="date-and-rating">
+                    ISBN: <%= book.isbn %> <br>
+                    Date Read:  <%= book.date %> <br>        
+                    Personal Rating: <%= book.rating %>/10 <br>
+                </p>
+        
+                <h3>Click this <a href="https://www.amazon.com/"><u>Amazon</u></a> page for price and details</h3>
+            </div>
+        </div>
+        
+        <h1>Personal book synopsis</h1>
+        <p>
+            <%= book.synopsis %>
+        </p>
+
+        
+        <hr>
+
+        <h1>Personal notes</h1>
+        <p>
+            <%= book.personal_notes %>
+        </p>
+    <% }else{ %> <h1>Nothing is here</h1> <% } %>
+
+
+
+</body>
+</html>
