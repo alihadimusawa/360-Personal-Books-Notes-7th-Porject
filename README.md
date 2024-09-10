@@ -38,16 +38,16 @@
 
 4. Create a "books" database in postgresql
 
-5. Create a "list_of_books" table inside the database, the column is as shown below
-   id serial primary key,
-   title varchar(100) not null,
-   author varchar(100) not null,
-   isbn varchar(100) not null,
-   date_read date not null,
-   rating int not null,
-   synopsis text not null,
-   notes text not null,
-   image text not null
+5. Create a "list_of_books" table inside the database, the column is as shown below:  
+   id serial primary key,   
+   title varchar(100) not null,   
+   author varchar(100) not null,    
+   isbn varchar(100) not null,    
+   date_read date not null,     
+   rating int not null,    
+   synopsis text not null,    
+   notes text not null,    
+   image text not null    
 
 ## Technologies Used
 - Frontend: HTML, CSS, JavaScript
